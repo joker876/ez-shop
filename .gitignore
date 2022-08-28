@@ -1,0 +1,11 @@
+*.env
+
+*/node_modules
+client/*/node_modules
+
+client/*/.vscode
+
+client/*/.angular/cache
+
+client/*/npm-debug.log
+client/*/yarn-error.log
