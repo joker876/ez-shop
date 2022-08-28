@@ -1,0 +1,31 @@
+<div class="app-container">
+    <router-outlet></router-outlet>
+</div>
+<app-modal
+    [(open)]="nameModalOpen"
+    modalTitle="Please tell us your name"
+    [maxContentWidth]="true"
+    (confirm)="onNameConfirm()"
+    [preventClosing]="true"
+    ok="Confirm"
+>
+    <div class="modal-content">
+        <p class="center">
+            The name you enter will be visible to other<br />users who have access to your lists.
+        </p>
+        
+        <form [formGroup]="nameForm">
+            <app-form-field [required]="true" [errorMessage]="nameInputError">
+                <app-field-label>Standard field</app-field-label>
+                <app-text-input
+                    [maxLength]="32"
+                    formControlName="name"
+                    (ngModelChange)="resetError()"
+                    #nameInput
+                ></app-text-input>
+                <app-field-hint></app-field-hint>
+                <app-field-hint>{{ nameInput.value.length }}/32</app-field-hint>
+            </app-form-field>
+        </form>
+    </div>
+</app-modal>

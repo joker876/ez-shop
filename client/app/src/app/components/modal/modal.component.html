@@ -1,0 +1,36 @@
+<div class="modal-bg" [class]="{open}" (click)="!preventClosing && onClose($event)">
+    <div
+        class="modal"
+        [style]="{'min-width': maxContentWidth ? 'max-content' : null}"
+        (click)="stopBgClick($event)"
+    >
+        <div class="top-container" [ngClass]="{'has-border': modalTitle}">
+            <h5 class="title" *ngIf="modalTitle">{{ modalTitle }}</h5>
+            <button
+                class="close-btn transparent-btn"
+                (click)="onClose($event)"
+                *ngIf="!preventClosing"
+            >
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div class="middle-container">
+            <ng-content></ng-content>
+        </div>
+        <div class="bottom-container" *ngIf="!hideButtons">
+            <app-ghost-button
+                class="cancel-btn"
+                *ngIf="cancelText"
+                [text]="cancelText"
+                size="S"
+                (click)="onCancel($event)"
+            ></app-ghost-button>
+            <app-main-button
+                class="ok-btn"
+                [text]="confirmText ?? 'OK'"
+                size="S"
+                (click)="onConfirm($event)"
+            ></app-main-button>
+        </div>
+    </div>
+</div>

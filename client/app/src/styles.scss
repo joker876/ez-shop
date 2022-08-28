@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --bg: #fafafa;
+    --bg2: #e7e7e7;
+    --black04: rgba(0, 0, 0, 0.04);
+    --black08: rgba(0, 0, 0, 0.08);
+    --black10: rgba(0, 0, 0, 0.1);
+    --black12: rgba(0, 0, 0, 0.12);
+    --black16: rgba(0, 0, 0, 0.16);
+    --black20: rgba(0, 0, 0, 0.2);
+    --black30: rgba(0, 0, 0, 0.3);
+
+    --text-e: rgba(0, 0, 0, 0.9); //emphasis
+    --text: rgba(0, 0, 0, 0.75); //standard
+    --text-s: rgba(0, 0, 0, 0.6); //secondary
+    --text-purple: #50485c;
+
+    --main-50: #EDE7F6;
+    --main-100: #D1C4E9;
+    --main-200: #B39DDB;
+    --main-300: #9575CD;
+    --main-400: #7E57C2;
+    --main-500: #673AB7;
+    --main-600: #5E35B1;
+    --main-700: #512DA8;
+    --main-800: #4527A0;
+    --main-900: #311B92;
+
+    --main-500-rgb: 103, 58, 183;
+
+    --error: rgb(244, 67, 54);
+    --error-rgb: 244, 67, 54;
+    --error-dark: rgb(214, 40, 31);
+    --error-dark-rgb: 214, 40, 31;
+    --success: rgb(36, 137, 25);
+    --success-rgb: 36, 137, 25;
+    --warn: rgb(230, 192, 23);
+    --warn-rgb: 230, 192, 23;
+    --info: rgb(63, 81, 181);
+    --info-rgb: 63, 81, 181;
+
+    --timing-func: cubic-bezier(0.28, 0.15, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    background-position: 50% 0;
+}
+
+ul {
+    list-style: none;
+}
+
+b {
+    font-weight: bold;
+}
+
+i {
+    font-style: italic;
+}
+
+p {
+    margin: 0.4em 0;
+}
+
+a {
+    color: var(--main-700);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--black12);
+    margin: 0.5em 0;
+}
+
+hr.wide {
+    margin: 1em 0;
+}
+
+hr.super-wide {
+    margin: 2em 0;
+}
+
+/*
+!==============================================================
+!        General Classes
+!==============================================================
+*/
+.unselectable {
+    user-select: none;
+}
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+.soft-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.disabled {
+    opacity: 50% !important;
+    pointer-events: none !important;
+}
+
+/*
+!==============================================================
+!        Button Styling
+!==============================================================
+*/
+button {
+    cursor: pointer;
+}
+
+button.main-btn,
+button.ghost-btn,
+button.danger-btn {
+    border-radius: 4px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 36px;
+    transition: background-color 0.25s ease, opacity 0.25s ease;
+}
+
+button.main-btn {
+    color: white;
+    background-color: var(--main-800);
+    border: none;
+
+    &:not([disabled]):hover {
+        background-color: var(--main-700);
+    }
+
+    &:not([disabled]):focus {
+        background-color: var(--main-600);
+    }
+
+    &:not([disabled]):active {
+        background-color: var(--main-500);
+    }
+}
+
+button.ghost-btn {
+    color: var(--text);
+    background-color: transparent;
+    border: 1px solid var(--black12);
+
+    &:not([disabled]):hover {
+        background-color: var(--black04);
+    }
+
+    &:not([disabled]):focus {
+        background-color: var(--black10);
+    }
+
+    &:not([disabled]):active {
+        background-color: var(--black20);
+    }
+}
+
+button.main-btn.ghost-btn {
+    color: var(--main-700);
+    background-color: transparent;
+    border: 1px solid var(--main-700);
+
+    &:not([disabled]):hover {
+        background-color: rgba(var(--main-500-rgb), 0.05);
+    }
+
+    &:not([disabled]):focus {
+        background-color: rgba(var(--main-500-rgb), 0.1);
+    }
+
+    &:not([disabled]):active {
+        background-color: rgba(var(--main-500-rgb), 0.2);
+    }
+}
+
+button.danger-btn {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: var(--error-dark);
+    border: none;
+
+    &:not([disabled]):hover {
+        background-color: rgba(var(--error-dark-rgb), 85%);
+    }
+
+    &:not([disabled]):focus {
+        background-color: rgba(var(--error-dark-rgb), 75%);
+    }
+
+    &:not([disabled]):active {
+        background-color: rgba(var(--error-dark-rgb), 65%);
+    }
+}
+
+button.danger-btn.ghost-btn {
+    color: var(--error-dark);
+    background-color: transparent;
+    border: 1px solid var(--error-dark);
+
+    &:not([disabled]):hover {
+        background-color: rgba(var(--error-dark-rgb), 5%);
+    }
+
+    &:not([disabled]):focus {
+        background-color: rgba(var(--error-dark-rgb), 10%);
+    }
+
+    &:not([disabled]):active {
+        background-color: rgba(var(--error-dark-rgb), 20%);
+    }
+}
+
+button.transparent-btn {
+    color: var(--text);
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:not([disabled]):hover {
+        background-color: var(--black04);
+    }
+
+    &:not([disabled]):focus {
+        background-color: var(--black10);
+    }
+
+    &:not([disabled]):active {
+        background-color: var(--black20);
+    }
+}
+
+/*
+!==============================================================
+!        Text Styling
+!==============================================================
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-emphasis,
+.title {
+    color: var(--text-e);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.5em 0;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.75px;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.text-secondary,
+.subtitle {
+    color: var(--text-s);
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 13px;
+    letter-spacing: 0.75px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.error {
+    color: var(--error);
+}
+
+.small-font {
+    font-size: 75%;
+}
+
+/*
+!==============================================================
+!        HTML Class Styling
+!==============================================================
+*/
+.height-100p {
+    height: 100%;
+}
+
+.height-max-content {
+    height: max-content;
+}
+
+.width-100p {
+    width: 100%;
+}
+
+.width-max-content {
+    width: max-content;
+}
+
+.opacity-90 {
+    opacity: 90%;
+}
+
+.opacity-80 {
+    opacity: 80%;
+}
+
+.opacity-75 {
+    opacity: 75%;
+}
+
+.opacity-70 {
+    opacity: 70%;
+}
+
+.opacity-60 {
+    opacity: 60%;
+}
+
+.opacity-50 {
+    opacity: 50%;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.font-weight-200 {
+    font-weight: 200;
+}
+
+.line-height-normal {
+    line-height: normal;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-align-end {
+    align-items: flex-end;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-gap-small {
+    gap: 0.25rem;
+}
+
+.flex-gap-medium {
+    gap: 0.4rem;
+}
+
+.flex-gap-large {
+    gap: 0.6rem;
+}
+
+/*
+!==============================================================
+!        Fixes
+!==============================================================
+*/
+mat-icon, bi-icon, fa-icon {
+    height: max-content;
+    display: grid;
+    place-items: center;
+}

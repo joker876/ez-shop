@@ -1,0 +1,36 @@
+<div class="general-input-wrapper">
+    <div class="before-container" *ngIf="before">
+        <span *ngIf="beforeType == 'text'">{{before}}</span>
+        <mat-icon *ngIf="beforeType=='icon'">{{before}}</mat-icon>
+        <button *ngIf="beforeType=='icon-button'">
+            <mat-icon>{{before}}</mat-icon>
+        </button>
+    </div>
+    <div class="input-container">
+        <input
+            type="text"
+            #input
+            [id]="id"
+            [(ngModel)]="value"
+            (input)="onInput($event)"
+            (keyup)="onArrowPress($event)"
+            [disabled]="disabled"
+            (blur)="onTouched.emit()"
+            [placeholder]="placeholder ?? ''"
+            autocomplete="off"
+        >
+        <button
+            class="transparent-btn clear-btn"
+            *ngIf="!removeClearButton"
+            (click)="setValue('')"
+            [ngClass]="{'soft-hidden': !value}"
+            tabindex="-1"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="after-container" *ngIf="after">
+        <span *ngIf="afterType == 'text'">{{after}}</span>
+        <mat-icon>{{after}}</mat-icon>
+    </div>
+</div>

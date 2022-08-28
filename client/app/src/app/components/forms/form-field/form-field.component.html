@@ -1,0 +1,26 @@
+<div class="form-field master-wrapper" [ngClass]="{'has-error': errorMessage, disabled}">
+    <label [for]="id" class="label-wrapper">
+        <ng-content
+            select="app-field-label"
+        ></ng-content>
+        <span class="required" *ngIf="required">*</span>
+    </label>
+    <div class="form-field-wrapper">
+        <ng-content
+            select=":not(app-field-hint):not(app-field-label)"
+        ></ng-content>
+    </div>
+    <div class="hint-wrapper">
+        <div class="hint-element-wrapper" *ngIf="!errorMessage || !errorReplacesHint">
+            <ng-content
+                select="app-field-hint"
+            ></ng-content>
+        </div>
+        <div
+            class="error-message-container"
+            *ngIf="errorMessage"
+        >
+            {{ errorMessage}}
+        </div>
+    </div>
+</div>
