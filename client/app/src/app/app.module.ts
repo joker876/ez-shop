@@ -12,7 +12,6 @@ import { TransparentButtonComponent } from './components/buttons/transparent-but
 import { MainButtonComponent } from './components/buttons/main-button/main-button.component';
 import { GhostButtonComponent } from './components/buttons/ghost-button/ghost-button.component';
 import { FieldLabelComponent } from './components/forms/field-label/field-label.component';
-import { FieldTextComponent } from './components/forms/field-text/field-text.component';
 import { FormFieldComponent } from './components/forms/form-field/form-field.component';
 import { FieldHintComponent } from './components/forms/field-hint/field-hint.component';
 import { TextInputComponent } from './components/forms/inputs/text-input/text-input.component';
@@ -29,7 +28,6 @@ import { _GeneralInputComponent } from './components/forms/inputs/INTERNAL-gener
     MainButtonComponent,
     GhostButtonComponent,
     FieldLabelComponent,
-    FieldTextComponent,
     FormFieldComponent,
     FieldHintComponent,
     TextInputComponent,
