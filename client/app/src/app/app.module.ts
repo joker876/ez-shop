@@ -16,7 +16,7 @@ import { FieldTextComponent } from './components/forms/field-text/field-text.com
 import { FormFieldComponent } from './components/forms/form-field/form-field.component';
 import { FieldHintComponent } from './components/forms/field-hint/field-hint.component';
 import { TextInputComponent } from './components/forms/inputs/text-input/text-input.component';
-import { GeneralInputComponent } from './components/forms/inputs/general-input/general-input.component';
+import { _GeneralInputComponent } from './components/forms/inputs/INTERNAL-general-input/general-input.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { GeneralInputComponent } from './components/forms/inputs/general-input/g
     FormFieldComponent,
     FieldHintComponent,
     TextInputComponent,
-    GeneralInputComponent,
+    _GeneralInputComponent,
   ],
   imports: [
     BrowserModule,

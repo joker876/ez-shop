@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneralInputComponent } from './general-input.component';
+import { _GeneralInputComponent } from './general-input.component';
 
 describe('GeneralInputComponent', () => {
-  let component: GeneralInputComponent;
-  let fixture: ComponentFixture<GeneralInputComponent>;
+  let component: _GeneralInputComponent;
+  let fixture: ComponentFixture<_GeneralInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeneralInputComponent ]
+      declarations: [ _GeneralInputComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeneralInputComponent);
+    fixture = TestBed.createComponent(_GeneralInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

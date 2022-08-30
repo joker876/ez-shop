@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-general-input',
+  selector: 'app_internal-general-input',
   templateUrl: './general-input.component.html',
   styleUrls: ['./general-input.component.scss'],
 })
-export class GeneralInputComponent implements OnChanges, AfterViewInit {
+export class _GeneralInputComponent implements OnChanges, AfterViewInit {
   @Input() before: any;
   @Input() beforeType: 'text' | 'icon' | 'icon-button' = 'icon-button';
   @Input() after: any;

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, forwardRef, Input, ViewChild } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator } from '@angular/forms';
-import { GeneralInputComponent } from '../general-input/general-input.component';
+import { _GeneralInputComponent } from '../INTERNAL-general-input/general-input.component';
 
 @Component({
   selector: 'app-text-input',
@@ -29,7 +29,7 @@ export class TextInputComponent implements ControlValueAccessor, Validator, Afte
   @Input() placeholder?: string;
 
   //input element
-  @ViewChild('input') inputComponent!: GeneralInputComponent;
+  @ViewChild('input') inputComponent!: _GeneralInputComponent;
 
   onChange: any = () => {};
   onTouched: any = () => {};
